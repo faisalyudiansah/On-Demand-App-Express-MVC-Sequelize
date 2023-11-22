@@ -1,0 +1,72 @@
+[
+  {
+    "userName": "jcordeau0",
+    "password": "2J!rbw|*<=qfh",
+    "email": "gdessant0@angelfire.com",
+    "subscription": true,
+    "role": "Engineer"
+  },
+  {
+    "userName": "jcarek1",
+    "password": "m0X.8XS1L9J'au",
+    "email": "skearney1@bizjournals.com",
+    "subscription": false,
+    "role": "Construction Worker"
+  },
+  {
+    "userName": "mverrico2",
+    "password": "q<RY$=b~7",
+    "email": "taldgate2@unc.edu",
+    "subscription": true,
+    "role": "Estimator"
+  },
+  {
+    "userName": "hfrankiewicz3",
+    "password": "+9#c/D|wo$yKT",
+    "email": "dscarrisbrick3@csmonitor.com",
+    "subscription": false,
+    "role": "Construction Worker"
+  },
+  {
+    "userName": "jchillingsworth4",
+    "password": "ln2XO\\!>\\uMHA",
+    "email": "jdumingos4@yelp.com",
+    "subscription": false,
+    "role": "Construction Worker"
+  },
+  {
+    "userName": "imuslim5",
+    "password": "02wf0Wm|.u",
+    "email": "wmcneill5@xing.com",
+    "subscription": false,
+    "role": "Supervisor"
+  },
+  {
+    "userName": "cclifton6",
+    "password": "GA{G+Ail!*=c",
+    "email": "twoffinden6@ucoz.ru",
+    "subscription": false,
+    "role": "Project Manager"
+  },
+  {
+    "userName": "avelte7",
+    "password": "(y#\\}5wby,{4@2MT",
+    "email": "crosenwald7@mayoclinic.com",
+    "subscription": true,
+    "role": "Construction Manager"
+  },
+  {
+    "userName": "jhaacker8",
+    "password": "Z'|`a/&ByXg",
+    "email": "dlawrey8@lulu.com",
+    "subscription": true,
+    "role": "Architect"
+  },
+  {
+    "userName": "jnoni9",
+    "password": "l?A6sdwjEM+h{1",
+    "email": "gselman9@diigo.com",
+    "subscription": true,
+    "role": "Engineer"
+  }
+]
