@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Movieflix</title>
+    <title>MovieFlix</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid pb-2">
-            <a class="navbar-brand mx-4" href="/">Art Collections</a>
+            <a class="navbar-brand mx-4" href="/">MovieFlix</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -24,7 +24,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/arts/add">Add Art</a>
+                        <a class="nav-link active" href="/arts/add">Subscription</a>
                     </li>
                 </ul>
             </div>
@@ -38,11 +38,7 @@
                 <form class="row g-3" action="/" method="get">
                     <div class="col-md-3">
                         <label for="searchNameArt" class="visually-hidden">Title</label>
-                        <input type="text" class="form-control" id="searchNameArt" name="searchNameArt" placeholder="Search by title">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="searchArtist" class="visually-hidden">Artist</label>
-                        <input type="text" class="form-control" id="searchArtist" name="searchArtist" placeholder="Or by artist">
+                        <input type="text" class="form-control" id="searchNameArt" name="searchNameArt" placeholder="Search by title movie...">
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-dark">Search</button>
@@ -52,17 +48,13 @@
 
             <div class="row mt-4">
                 <% data.forEach(i=> { %>
-                    <div class="col-md-6 my-3">
+                    <div class="col-md-3 my-4">
                         <div class="card h-100">
-                            <img src="<%= i.photo %>" class="card-img-top img-fluid" alt="photo" style="max-height: 250px;">
+                            <img src="<%= i.imageUrl %>" class="card-img-top h-100">
                             <div class="card-body">
-                                <h5 class="card-title"><%= i.name %></h5>
-                                <p class="card-text"><small class="text-body-secondary"><%= i.artist %></small></p>
-                                <p class="card-text scroll"><%= i.description %></p>
-                            </div>
-                            <div class="card-footer">
-                                <a class="btn btn-dark" href="/arts/<%= i.id %>" role="button">See Detail</a>
-                                <a class="btn btn-danger" href="/arts/<%= i.id %>/delete" role="button">Delete</a>
+                                <h5 class="card-title"><%= i.title %></h5>
+                                <h6 class="card-subtitle my-3 text-body-secondary"><%= i.formattedDate %></h6>
+                                <a href="#" class="btn btn-dark mt-3">Show details</a>
                             </div>
                         </div>
                     </div>

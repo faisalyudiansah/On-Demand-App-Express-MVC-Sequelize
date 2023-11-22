@@ -1,7 +1,12 @@
+const { User, UserProfile, Movie, ReviewMovie, sequelize } = require('../models')
 class Controller {
     static async homeMovie(req, res) {
         try {
-            res.send('homeMovie')
+            let data = await Movie.findAll({
+                order: [['id', 'ASC']]
+            })
+            res.render('home', { data })
+            // res.send(data)
         } catch (error) {
             console.log(error)
             res.send(error.message)

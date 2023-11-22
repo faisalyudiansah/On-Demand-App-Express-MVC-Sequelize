@@ -1,0 +1,82 @@
+[
+  {
+    "username": "ronaldo",
+    "password": "1234",
+    "email": "ronaldo@gmail.com",
+    "subscription": true,
+    "role": "user",
+    "confirmation": true
+  },
+  {
+    "username": "jcarek1",
+    "password": "m0X.8XS1L9J'au",
+    "email": "skearney1@bizjournals.com",
+    "subscription": false,
+    "role": "user",
+    "confirmation": false
+  },
+  {
+    "username": "mverrico2",
+    "password": "q<RY$=b~7",
+    "email": "taldgate2@unc.edu",
+    "subscription": false,
+    "role": "user",
+    "confirmation": true
+  },
+  {
+    "username": "hfrankiewicz3",
+    "password": "+9#c/D|wo$yKT",
+    "email": "dscarrisbrick3@csmonitor.com",
+    "subscription": true,
+    "role": "user",
+    "confirmation": true
+  },
+  {
+    "username": "jchillingsworth4",
+    "password": "ln2XO\\!>\\uMHA",
+    "email": "jdumingos4@yelp.com",
+    "subscription": false,
+    "role": "user",
+    "confirmation": false
+  },
+  {
+    "username": "imuslim5",
+    "password": "02wf0Wm|.u",
+    "email": "wmcneill5@xing.com",
+    "subscription": false,
+    "role": "user",
+    "confirmation": false
+  },
+  {
+    "username": "admin1",
+    "password": "admin1",
+    "email": "admin1@gmail.com",
+    "subscription": true,
+    "role": "admin",
+    "confirmation": true
+  },
+  {
+    "username": "avelte7",
+    "password": "(y#\\}5wby,{4@2MT",
+    "email": "crosenwald7@mayoclinic.com",
+    "subscription": false,
+    "role": "user",
+    "confirmation": true
+  },
+  {
+    "username": "jhaacker8",
+    "password": "Z'|`a/&ByXg",
+    "email": "dlawrey8@lulu.com",
+    "subscription": false,
+    "role": "user",
+    "confirmation": false
+  },
+  {
+    "username": "admin2",
+    "password": "admin2",
+    "email": "admin2@gmail.com",
+    "subscription": true,
+    "role": "admin",
+    "confirmation": true
+  }
+]

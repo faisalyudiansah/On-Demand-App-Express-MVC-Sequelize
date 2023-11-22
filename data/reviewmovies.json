@@ -1,0 +1,62 @@
+[
+  {
+    "description": "Incision and drainage of palmar or thenar space",
+    "rating": 3,
+    "MovieId": 6,
+    "UserId": 8
+  },
+  {
+    "description": "Implantation of electronic bladder stimulator",
+    "rating": 4,
+    "MovieId": 5,
+    "UserId": 9
+  },
+  {
+    "description": "Other retroperitoneal x-ray",
+    "rating": 2,
+    "MovieId": 4,
+    "UserId": 10
+  },
+  {
+    "description": "Excision of lesion of maxillary sinus with other approach",
+    "rating": 5,
+    "MovieId": 6,
+    "UserId": 4
+  },
+  {
+    "description": "Transplantation of thymus",
+    "rating": 1,
+    "MovieId": 9,
+    "UserId": 3
+  },
+  {
+    "description": "Common duct exploration for removal of calculus",
+    "rating": 4,
+    "MovieId": 2,
+    "UserId": 5
+  },
+  {
+    "description": "Total splenectomy",
+    "rating": 2,
+    "MovieId": 9,
+    "UserId": 8
+  },
+  {
+    "description": "Bilateral subcutaneous mammectomy with synchronous implant",
+    "rating": 3,
+    "MovieId": 2,
+    "UserId": 1
+  },
+  {
+    "description": "Insertion or replacement of multiple array neurostimulator pulse generator, not specified as rechargeable",
+    "rating": 5,
+    "MovieId": 10,
+    "UserId": 5
+  },
+  {
+    "description": "Other incision of lacrimal passages",
+    "rating": 2,
+    "MovieId": 5,
+    "UserId": 9
+  }
+]
