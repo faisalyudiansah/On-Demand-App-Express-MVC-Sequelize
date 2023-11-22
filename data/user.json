@@ -5,7 +5,7 @@
     "email": "gdessant0@angelfire.com",
     "subscription": true,
     "role": "user",
-    "confirmation": false
+    "confirmation": true
   },
   {
     "userName": "jcarek1",
@@ -19,17 +19,17 @@
     "userName": "mverrico2",
     "password": "q<RY$=b~7",
     "email": "taldgate2@unc.edu",
-    "subscription": true,
+    "subscription": false,
     "role": "user",
-    "confirmation": false
+    "confirmation": true
   },
   {
     "userName": "hfrankiewicz3",
     "password": "+9#c/D|wo$yKT",
     "email": "dscarrisbrick3@csmonitor.com",
-    "subscription": false,
+    "subscription": true,
     "role": "user",
-    "confirmation": false
+    "confirmation": true
   },
   {
     "userName": "jchillingsworth4",
@@ -51,23 +51,23 @@
     "userName": "cclifton6",
     "password": "GA{G+Ail!*=c",
     "email": "twoffinden6@ucoz.ru",
-    "subscription": false,
+    "subscription": true,
     "role": "admin",
-    "confirmation": false
+    "confirmation": true
   },
   {
     "userName": "avelte7",
     "password": "(y#\\}5wby,{4@2MT",
     "email": "crosenwald7@mayoclinic.com",
-    "subscription": true,
+    "subscription": false,
     "role": "user",
-    "confirmation": false
+    "confirmation": true
   },
   {
     "userName": "jhaacker8",
     "password": "Z'|`a/&ByXg",
     "email": "dlawrey8@lulu.com",
-    "subscription": true,
+    "subscription": false,
     "role": "user",
     "confirmation": false
   },
@@ -75,8 +75,8 @@
     "userName": "jnoni9",
     "password": "l?A6sdwjEM+h{1",
     "email": "gselman9@diigo.com",
-    "subscription": false,
+    "subscription": true,
     "role": "admin",
-    "confirmation": false
+    "confirmation": true
   }
 ]
