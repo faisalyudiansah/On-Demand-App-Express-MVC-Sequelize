@@ -87,6 +87,7 @@ class Controller {
 
     static async listUserFromAdmin(req, res) {
         try {
+
             const data = await User.findAll({
                 include: {
                     model: UserProfile
@@ -97,6 +98,9 @@ class Controller {
                 ]
             })
             res.render('dashboardListUser', { data, dateFormattedYMD })
+
+
+
         } catch (error) {
             console.log(error)
             res.send(error.message)

@@ -13,6 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       ReviewMovie.belongsTo(models.User)
       ReviewMovie.belongsTo(models.Movie)
     }
+
+    static async avgRatingMovie(idMovie) {
+      let queryDb = `SELECT ROUND(AVG(rm.rating), 1) AS avg
+            FROM "Movies" m
+            JOIN "ReviewMovies" rm ON m.id = rm."MovieId"
+            WHERE m.id = ${idMovie};`
+
+      let avgRating = await sequelize.query(queryDb, {
+        model: ReviewMovie,
+        mapToModel: true
+      })
+      return avgRating
+    }
   }
 
   ReviewMovie.init({
