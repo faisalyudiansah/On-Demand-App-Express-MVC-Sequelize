@@ -1,5 +1,5 @@
 function currencyToIDR(value) {
-    if(!value) value = 0;
+    if (!value) value = 0;
     let newFormatted = value.toLocaleString('id-ID', {
         style: 'currency',
         currency: 'IDR'
@@ -18,4 +18,12 @@ function dateFormattedYMD(value) {
     return [year, month, date].join('-')
 }
 
-module.exports = { currencyToIDR, dateFormattedYMD }
+function inputDate(value) {
+    const date = new Date(value);
+    const year = date.getFullYear();
+    const month = `${date.getMonth() + 1}`.padStart(2, '0');
+    const day = `${date.getDate()}`.padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
+module.exports = { currencyToIDR, dateFormattedYMD, inputDate }
