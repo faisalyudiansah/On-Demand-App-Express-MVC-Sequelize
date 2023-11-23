@@ -24,7 +24,7 @@ router.get('/movies/:idMovie', Controller.detailMovie) // detail
 router.post('/movies/addreview/:idMovie', Controller.saveNewReview) // save new review POST
 
 router.use('/profil', profilUser)
-router.use('/payment', Controller.sessionAccountSubs, subs)
+router.use('/payment', Controller.sessionAccountConfirm, Controller.sessionAccountSubs, subs)
 
 //===================================================================================
 router.use(Controller.sessionAccountRole) // session role check

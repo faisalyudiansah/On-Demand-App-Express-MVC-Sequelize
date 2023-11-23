@@ -48,6 +48,20 @@ class Controller {
         }
     }
 
+    static async sessionAccountConfirm(req, res, next) {
+        try {
+            let notValidMsg = `Access Denied`
+            if (req.session.userConfirm === true) {
+                res.redirect(`/?error=${notValidMsg}`)
+            } else {
+                next()
+            }
+        } catch (error) {
+            console.log(error)
+            res.send(error.message)
+        }
+    }
+
     static async logout(req, res, next) {
         try {
             req.session.destroy()
@@ -87,6 +101,7 @@ class Controller {
 
                     req.session.userId = data.id
                     req.session.userRole = data.role
+                    req.session.userConfirm = data.confirmation
                     req.session.userSubs = data.subscription
 
                     res.redirect('/')
