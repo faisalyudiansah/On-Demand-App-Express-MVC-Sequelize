@@ -8,11 +8,11 @@ class Controller {
         }
     }
 
-//=========================================================
+    //=========================================================
 
     static async addMovie(req, res) {
         try {
-            res.send('addMovie')
+            res.render('dashboardAddMovie')
         } catch (error) {
             console.log(error)
             res.send(error.message)
@@ -28,7 +28,7 @@ class Controller {
         }
     }
 
-//=========================================================
+    //=========================================================
 
     static async editMoviePage(req, res) {
         try {
@@ -50,7 +50,7 @@ class Controller {
 
     static async listUserFromAdmin(req, res) {
         try {
-            res.send('listUserFromAdmin')
+            res.render('dashboardListUser')
         } catch (error) {
             console.log(error)
             res.send(error.message)
