@@ -24,9 +24,23 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/arts/add">Subscription</a>
+                        <a class="nav-link active" href="/profil/<%= user.id %>">My Profile</a>
                     </li>
+                    <% if (user.confirmation !==true) { %>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">Subscription</a>
+                        </li>
+                        <% } %>
                 </ul>
+            </div>
+            <% if (user.role === 'admin') { %>
+            <div class="mx-4">
+                <a class="nav-link active text-bg-dark navbar-text" aria-current="page" href="/dashboard">Dashboard</a>
+            </div>
+            <% } %>
+            <div class="mx-4">
+                <a class="nav-link active text-bg-dark navbar-text" aria-current="page" href="/logout">Logout</a>
             </div>
         </div>
     </nav>
@@ -38,7 +52,8 @@
                 <form class="row g-3" action="/" method="get">
                     <div class="col-md-3">
                         <label for="search" class="visually-hidden">Title</label>
-                        <input type="text" class="form-control" id="search" name="search" placeholder="Search by title movie...">
+                        <input type="text" class="form-control" id="search" name="search"
+                            placeholder="Search by title movie...">
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-dark">Search</button>
@@ -46,26 +61,59 @@
                 </form>
             </div>
 
+
             <div class="row mt-4">
-                <% data.forEach(i=> { %>
-                    <div class="col-md-3 my-4">
-                        <div class="card h-100">
-                            <img src="<%= i.imageUrl %>" class="card-img-top h-100">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= i.title %></h5>
-                                <h6 class="card-subtitle my-3 text-body-secondary"><%= i.formattedDate %></h6>
-                                <a href="/movies/<%= i.id %>" class="btn btn-dark mt-3">Show details</a>
-                            </div>
-                        </div>
+                <% if (error) { %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <% error.split(',').forEach(i=> { %>
+                            <p>
+                                <%= i %>
+                            </p>
+                            <% }) %>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                     </div>
-                <% }) %>
+                    <% } %>
+
+                        <% if (payment) { %>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <% payment.split(',').forEach(i=> { %>
+                                    <p>
+                                        <%= i %>
+                                    </p>
+                                    <% }) %>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                            </div>
+                            <% } %>
+
+                                <% data.forEach(i=> { %>
+                                    <div class="col-md-3 my-4">
+                                        <div class="card h-100">
+                                            <img src="<%= i.imageUrl %>" class="card-img-top h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <%= i.title %>
+                                                </h5>
+                                                <h6 class="card-subtitle my-3 text-body-secondary">
+                                                    <%= i.formattedDate %>
+                                                </h6>
+                                                <a href="/movies/<%= i.id %>" class="btn btn-dark mt-3">Show details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }) %>
+
             </div>
+
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+    <%- include('partials/_modalConfrimToSubs.ejs') %>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

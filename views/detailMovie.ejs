@@ -24,15 +24,29 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/arts/add">Subscription</a>
+                        <a class="nav-link active" href="/profil/<%= user.id %>">My Profile</a>
                     </li>
+                    <% if (user.confirmation !==true) { %>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">Subscription</a>
+                        </li>
+                        <% } %>
                 </ul>
+            </div>
+            <% if (user.role === 'admin') { %>
+            <div class="mx-4">
+                <a class="nav-link active text-bg-dark navbar-text" aria-current="page" href="/dashboard">Dashboard</a>
+            </div>
+            <% } %>
+            <div class="mx-4">
+                <a class="nav-link active text-bg-dark navbar-text" aria-current="page" href="/logout">Logout</a>
             </div>
         </div>
     </nav>
 
     <section class="bg-secondary text-bg-dark min-vh-100">
-        <div class="container-fluid p-5">
+        <div class="container p-5">
             <a class="btn btn-dark mb-3" href="/" role="button">Back</a>
             <div class="row">
                 <div class="col-md-4">
@@ -51,75 +65,102 @@
                         <li class="list-group-item"><strong>Released Date : </strong>
                             <%= data.formattedDate %>
                         </li>
+                        <li class="list-group-item"><strong>Rating From MovieFlix : </strong>
+                            <% if (data.Users.length===0) { %>
+                                No reviews found for this movie
+                                <% } else { %>
+                                    <%= avgRating.dataValues.avg %>
+                                        <% for (let i=1; i <=5; i++) { %>
+                                            <% if (i <=avgRating.dataValues.avg) { %>
+                                                <span class="star">&#9733;</span>
+                                                <% } else { %>
+                                                    <span class="star">&#9734;</span>
+                                                    <% } %>
+                                                        <% } %>
+                                                            <% } %>
+                        </li>
                         <li class="list-group-item"><strong>Plot : </strong>
                             <%= data.synopsis %>
                         </li>
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            Watch Movie
-                        </button>
+                        <% if (user.subscription===true) { %>
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Watch Movie
+                            </button>
+                            <% } %>
+                                <a class="btn btn-dark my-2" href="#reviewSection" role="button">Review</a>
                     </ul>
                 </div>
             </div>
+
+            <h1 class="text-center my-5">Trailer Movie</h1>
             <div class="row my-4 m-1">
                 <div class="ratio ratio-16x9">
                     <iframe src="<%= data.trailerUrl %>" title="YouTube video" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <div class="row-cols-auto">
+            <div class="row-cols-auto" id="reviewSection">
                 <h1 class="text-center p-4">Reviews</h1>
-                <a class="btn btn-dark mb-3" href="/" role="button">Add Your Review</a>
-                <div class="col">
-                    <table class="table table-secondary table-striped table-bordered text-center">
-                        <thead table-striped>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Review</th>
-                                <th scope="col">Rating</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% data.Users.forEach(user => { %>
-                                <tr>
-                                    <td><%= user.UserProfile.fullname %></td>
-                                    <td><%= user.ReviewMovie.description %></td>
-                                    <td><%= user.ReviewMovie.rating %></td>
-                                </tr>
-                            <% }) %>
-                        </tbody>
-                    </table>
-                </div>
+                <% if (user.subscription===true) { %>
+                    <form action="/movies/addreview/<%= idMovie %>" method="post">
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Add Your Review</label>
+                            <textarea type="text" class="form-control" name="description" id="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Rating</label>
+                            <% ['1', '2' , '3' , '4' , '5' ].forEach(el=> { %>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="rating" id="rating"
+                                        value="<%= el %>">
+                                    <label class="form-check-label" for="rating">
+                                        <%= el %>
+                                    </label>
+                                </div>
+                                <% }) %>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Add Review</button>
+                    </form>
+                    <% } %>
+
+                        <div class="col my-4">
+                            <table class="table table-secondary table-striped table-bordered text-center">
+                                <thead table-striped>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Review</th>
+                                        <th scope="col">Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% data.Users.forEach(user=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= user.UserProfile.fullname %>
+                                            </td>
+                                            <td>
+                                                <%= user.ReviewMovie.description %>
+                                            </td>
+                                            <td>
+                                                <%= user.ReviewMovie.rating %>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
             </div>
-            
+
         </div>
     </section>
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                        <%= data.title %>
-                    </h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="<%= data.movieUrl %>" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%- include('partials/_modalConfrimToSubs.ejs') %>
+        <%- include('partials/_modalMovie.ejs') %>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>
