@@ -12,7 +12,8 @@ class Controller {
                 }
             })
             // res.json(data)
-            res.render('profilUser', { data, dateFormattedYMD })
+            let user = await User.findByPk(req.session.userId)
+            res.render('profilUser', { data, dateFormattedYMD, user })
         } catch (error) {
             console.log(error)
             res.send(error.message)
@@ -27,7 +28,8 @@ class Controller {
                     model: UserProfile
                 }
             })
-            res.render('editUser', { data, inputDate })
+            let user = await User.findByPk(req.session.userId)
+            res.render('editUser', { data, inputDate, user })
         } catch (error) {
             console.log(error)
             res.send(error.message)

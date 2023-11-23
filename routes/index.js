@@ -27,16 +27,17 @@ router.post('/movies/addreview/:idMovie', Controller.saveNewReview) // save new 
 router.use('/profil', profilUser)
 
 //===================================================================================
+router.use(Controller.sessionAccountRole) // session role check
+//===================================================================================
+
+router.use('/dashboard', dashboardAdmin)
+
+//===================================================================================
 router.use(Controller.sessionAccountSubs) // session role check
 //===================================================================================
 
 router.use('/payment', subs)
 
-//===================================================================================
-router.use(Controller.sessionAccountRole) // session role check
-//===================================================================================
-
-router.use('/dashboard', dashboardAdmin)
 
 
 module.exports = router
