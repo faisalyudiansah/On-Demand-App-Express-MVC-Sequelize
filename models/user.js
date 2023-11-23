@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
     subscription: DataTypes.BOOLEAN,
     role: DataTypes.STRING,
     confirmation: DataTypes.BOOLEAN,
-    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'User',

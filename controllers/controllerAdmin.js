@@ -1,3 +1,5 @@
+const { User, UserProfile, Movie, ReviewMovie, sequelize } = require('../models')
+const { Op } = require("sequelize")
 class Controller {
     static async listMovies(req, res) {
         try {
@@ -50,7 +52,8 @@ class Controller {
 
     static async listUserFromAdmin(req, res) {
         try {
-            res.send('listUserFromAdmin')
+            let data = await User.findAll()
+            res.send(data)
         } catch (error) {
             console.log(error)
             res.send(error.message)

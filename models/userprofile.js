@@ -12,13 +12,18 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       UserProfile.belongsTo(models.User)
     }
+
+    get fullname() {
+      return `${this.firstName} ${this.lastName}`
+    }
   }
 
   UserProfile.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     dateOfBirth: DataTypes.DATE,
-    nationality: DataTypes.STRING
+    nationality: DataTypes.STRING,
+    UserId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'UserProfile',
