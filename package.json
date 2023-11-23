@@ -1,0 +1,37 @@
+{
+  "name": "pair-project-on-demand-app-rmt43",
+  "version": "1.0.0",
+  "description": "Pair Project - ON DEMAND APP",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faisalyudiansah/pair-project-on-demand-app-rmt43.git"
+  },
+  "keywords": [
+    "on",
+    "demand",
+    "app"
+  ],
+  "author": "Muhammad Faisal Yudiansah, Andre Hendrawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faisalyudiansah/pair-project-on-demand-app-rmt43/issues"
+  },
+  "homepage": "https://github.com/faisalyudiansah/pair-project-on-demand-app-rmt43#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.3",
+    "qrcode": "^1.5.3",
+    "sequelize": "^6.35.1"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
+}

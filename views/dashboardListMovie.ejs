@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MovieFlix</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  </head>
+
+  <body>
+    <!-- NavBar Starts -->
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <div class="container-fluid pb-2">
+        <a class="navbar-brand mx-4" href="/">MovieFlix</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mx-2" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item mx-2">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link active" href="/dashboard">List Movie</a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link active" href="/dashboard/listuser">List User</a>
+            </li>
+          </ul>
+        </div>
+        <div class="mx-4">
+          <a class="nav-link active text-bg-dark navbar-text" aria-current="page" href="/logout">Logout</a>
+      </div>
+      </div>
+    </nav>
+    <!-- NavBar Ends -->
+    <section class="bg-secondary text-bg-dark min-vh-100">
+      <h1 class="text-center pt-md-5">List Movie</h1>
+      <div class="container p-5">
+        <!-- Contents Starts -->
+        <a class="btn btn-dark btn-sm mb-3" href="/dashboard/addmovie" role="button">Add New Movie</a>
+        <!-- Delete Alerts Starts -->
+        <% if (deletedMovie) { %>
+        <div class="alert alert-success" role="alert">Successfully deleted <%= deletedMovie %>!</div>
+        <% } %>
+        <!-- Delete Alerts Ends -->
+        <table class="table table-secondary table-striped table-bordered table-hover">
+          <thead class="table-dark">
+            <tr scope="col" class="text-center">
+              <th>Title</th>
+              <th>Director</th>
+              <th>Release Date</th>
+              <th>Synopsis</th>
+              <th>Thumbnail</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.forEach(i => { %>
+            <tr class="text-center">
+              <td><%= i.title %></td>
+              <td><%= i.directorName %></td>
+              <td><%= dateFormattedYMD(i.releasedDate) %></td>
+              <td><%= i.synopsis %></td>
+              <td><img src="<%= i.imageUrl %>" alt="<%= i.id %>" /></td>
+              <td>
+                <a class="btn btn-dark btn-sm" href="/dashboard/edit/<%= i.id %>" role="button">Edit</a>
+                <a class="btn btn-danger btn-sm" href="/dashboard/delete/<%= i.id %>" role="button">Delete</a>
+              </td>
+              <% }) %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

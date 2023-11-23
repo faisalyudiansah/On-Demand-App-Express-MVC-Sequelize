@@ -1,0 +1,72 @@
+[
+  {
+    "firstName": "Gibb",
+    "lastName": "Pooly",
+    "dateOfBirth": "1997-08-06",
+    "nationality": "Indonesia",
+    "UserId": 1
+  },
+  {
+    "firstName": "Ronnica",
+    "lastName": "Hare",
+    "dateOfBirth": "1987-01-27",
+    "nationality": "Namibia",
+    "UserId": 2
+  },
+  {
+    "firstName": "Collete",
+    "lastName": "Gimbart",
+    "dateOfBirth": "1987-07-25",
+    "nationality": "Pakistan",
+    "UserId": 3
+  },
+  {
+    "firstName": "Seana",
+    "lastName": "Vecard",
+    "dateOfBirth": "1981-10-26",
+    "nationality": "Peru",
+    "UserId": 4
+  },
+  {
+    "firstName": "Liana",
+    "lastName": "Peggs",
+    "dateOfBirth": "1984-06-07",
+    "nationality": "Russia",
+    "UserId": 5
+  },
+  {
+    "firstName": "Ola",
+    "lastName": "Balkwill",
+    "dateOfBirth": "1984-08-08",
+    "nationality": "Ukraine",
+    "UserId": 6
+  },
+  {
+    "firstName": "Humfrey",
+    "lastName": "McGourty",
+    "dateOfBirth": "1994-09-26",
+    "nationality": "Argentina",
+    "UserId": 7
+  },
+  {
+    "firstName": "Ethelind",
+    "lastName": "Possa",
+    "dateOfBirth": "1993-08-31",
+    "nationality": "Iran",
+    "UserId": 8
+  },
+  {
+    "firstName": "Mike",
+    "lastName": "Hunt",
+    "dateOfBirth": "1994-01-25",
+    "nationality": "Nigeria",
+    "UserId": 9
+  },
+  {
+    "firstName": "Debbi",
+    "lastName": "Mantione",
+    "dateOfBirth": "1983-04-03",
+    "nationality": "Russia",
+    "UserId": 10
+  }
+]
