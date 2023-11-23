@@ -24,9 +24,23 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" href="/arts/add">Subscription</a>
+                        <a class="nav-link active" href="/profil/<%= user.id %>">My Profile</a>
                     </li>
+                    <% if (user.confirmation !==true) { %>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link active" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">Subscription</a>
+                        </li>
+                        <% } %>
                 </ul>
+            </div>
+            <% if (user.role === 'admin') { %>
+            <div class="mx-4">
+                <a class="nav-link active text-bg-dark navbar-text" aria-current="page" href="/dashboard">Dashboard</a>
+            </div>
+            <% } %>
+            <div class="mx-4">
+                <a class="nav-link active text-bg-dark navbar-text" aria-current="page" href="/logout">Logout</a>
             </div>
         </div>
     </nav>

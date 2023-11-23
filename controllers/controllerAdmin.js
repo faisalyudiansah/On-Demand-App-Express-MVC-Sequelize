@@ -3,8 +3,8 @@ const { Op } = require("sequelize")
 const { dateFormattedYMD, currencyToIDR, inputDate } = require('../helpers/formatter')
 class Controller {
     static async listMovies(req, res) {
-        const deletedMovie = req.query.deletedMovie
         try {
+            const { deletedMovie } = req.query
             let data = await Movie.findAll({
                 order: [['createdAt', 'DESC'], ['updatedAt', 'DESC']]
             })
@@ -71,15 +71,14 @@ class Controller {
     static async deleteMovie(req, res) {
         let { idMovie } = req.params
         try {
-            // let data = await Movie.findByPk(idMovie)
-            await Movie.destroy({
+            let data = await Movie.findByPk(idMovie)
+            Movie.destroy({
                 where: {
                     id: idMovie
-                }
-            })
-            // console.log(data)
-            // res.redirect(`/dashboard/delete/${idMovie}?deletedMovie=${data.title}`)
-            res.redirect(`/dashboard`)
+                },
+            }),
+                res.redirect(`/dashboard/delete/${idMovie}?deletedMovie=${data.title}`)
+            // res.redirect(`/dashboard`)
         } catch (error) {
             console.log(error)
             res.send(error.message)
