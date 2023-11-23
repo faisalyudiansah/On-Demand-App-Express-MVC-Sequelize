@@ -1,7 +1,7 @@
 const { User, UserProfile, Movie, ReviewMovie, sequelize } = require('../models')
 const { Op } = require("sequelize")
 const bcrypt = require('bcryptjs')
-const qrcode = require('qrcode')
+
 
 class Controller {
     //===================================================================================
@@ -189,19 +189,6 @@ class Controller {
         }
     }
 
-    static async qrCode(req, res) {
-        const qrUrl = 'https://bcadigital.co.id/'
-        try {
-            qrcode.toDataURL(qrUrl, (err, src) => {
-                res.render('paymentPage', {
-                    qr_code: src,
-                })
-            })
-        } catch (error) {
-            console.log(error)
-            res.send(error.message)
-        }
-    }
 }
 
 module.exports = Controller
