@@ -1,14 +1,14 @@
 const { User, UserProfile, Movie, ReviewMovie, sequelize } = require('../models')
 const { Op } = require("sequelize")
-const { dateFormattedYMD, currencyToIDR, inputDate } = require('../helpers/formatter')
+const { dateFormattedYMD, inputDate } = require('../helpers/formatter')
 class Controller {
     static async listMovies(req, res) {
         try {
-            const { deletedMovie } = req.query
+            let { deleted } = req.query
             let data = await Movie.findAll({
                 order: [['id', 'DESC']]
             })
-            res.render('dashboardListMovie', { data, dateFormattedYMD, deletedMovie })
+            res.render('dashboardListMovie', { data, dateFormattedYMD, deleted })
         } catch (error) {
             console.log(error)
             res.send(error.message)
@@ -72,12 +72,8 @@ class Controller {
         let { idMovie } = req.params
         try {
             let data = await Movie.findByPk(idMovie)
-            Movie.destroy({
-                where: {
-                    id: idMovie
-                },
-            }),
-            res.redirect(`/dashboard`)
+            await data.destroy()
+            res.redirect(`/dashboard?deleted=${data.title}`)
         } catch (error) {
             console.log(error)
             res.send(error.message)
@@ -86,7 +82,7 @@ class Controller {
 
     static async listUserFromAdmin(req, res) {
         try {
-
+            let { deleted } = req.query
             const data = await User.findAll({
                 include: {
                     model: UserProfile
@@ -96,10 +92,7 @@ class Controller {
                     ['confirmation', 'DESC']
                 ]
             })
-            res.render('dashboardListUser', { data, dateFormattedYMD })
-
-
-
+            res.render('dashboardListUser', { data, dateFormattedYMD, deleted })
         } catch (error) {
             console.log(error)
             res.send(error.message)
@@ -109,12 +102,9 @@ class Controller {
     static async deleteUser(req, res) {
         const { idUser } = req.params
         try {
-            await User.destroy({
-                where: {
-                    id: idUser
-                }
-            })
-            res.redirect('/dashboard/listuser')
+            let data = await User.findByPk(idUser)
+            await data.destroy()
+            res.redirect(`/dashboard/listuser?deleted=${data.username}`)
         } catch (error) {
             console.log(error)
             res.send(error.message)

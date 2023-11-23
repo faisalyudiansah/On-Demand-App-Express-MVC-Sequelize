@@ -10,6 +10,7 @@
 
   <body>
     <!-- NavBar Starts -->
+    
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
       <div class="container-fluid pb-2">
         <a class="navbar-brand mx-4" href="/">MovieFlix</a>
@@ -38,6 +39,9 @@
     <section class="bg-secondary text-bg-dark min-vh-100">
       <h1 class="text-center pt-md-5">List User</h1>
       <div class="container p-5">
+        <% if (deleted) { %>
+          <div class="alert alert-success" role="alert">Successfully deleted <%= deleted %>!</div>
+        <% } %>
         <!-- Contents Starts -->
         <table class="table table-secondary table-striped table-bordered table-hover">
           <thead class="table-dark">

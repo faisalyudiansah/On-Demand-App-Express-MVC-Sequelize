@@ -1,12 +1,3 @@
-function currencyToIDR(value) {
-    if (!value) value = 0;
-    let newFormatted = value.toLocaleString('id-ID', {
-        style: 'currency',
-        currency: 'IDR'
-    })
-    return newFormatted
-}
-
 function dateFormattedYMD(value) {
     const options = {
         year: 'numeric',
@@ -26,4 +17,4 @@ function inputDate(value) {
     return `${year}-${month}-${day}`;
 }
 
-module.exports = { currencyToIDR, dateFormattedYMD, inputDate }
+module.exports = { dateFormattedYMD, inputDate }  // ada yang cuma bisa pakai salah satunya
