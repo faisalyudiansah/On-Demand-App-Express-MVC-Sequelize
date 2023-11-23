@@ -6,7 +6,7 @@ class Controller {
         try {
             const { deletedMovie } = req.query
             let data = await Movie.findAll({
-                order: [['createdAt', 'DESC'], ['updatedAt', 'DESC']]
+                order: [['id', 'DESC']]
             })
             res.render('dashboardListMovie', { data, dateFormattedYMD, deletedMovie })
         } catch (error) {
@@ -77,8 +77,7 @@ class Controller {
                     id: idMovie
                 },
             }),
-                res.redirect(`/dashboard/delete/${idMovie}?deletedMovie=${data.title}`)
-            // res.redirect(`/dashboard`)
+            res.redirect(`/dashboard`)
         } catch (error) {
             console.log(error)
             res.send(error.message)

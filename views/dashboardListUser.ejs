@@ -29,6 +29,9 @@
             </li>
           </ul>
         </div>
+        <div class="mx-4">
+          <a class="nav-link active text-bg-dark navbar-text" aria-current="page" href="/logout">Logout</a>
+      </div>
       </div>
     </nav>
     <!-- NavBar Ends -->
@@ -42,7 +45,6 @@
               <th scope="col" class="text-center">First Name</th>
               <th scope="col" class="text-center">Last Name</th>
               <th scope="col" class="text-center">Username</th>
-              <th scope="col" class="text-center">Password</th>
               <th scope="col" class="text-center">Role</th>
               <th scope="col" class="text-center">Date of Birth</th>
               <th scope="col" class="text-center">Nationality</th>
@@ -57,15 +59,14 @@
               <td class="text-center"><%= i.UserProfile.firstName %></td>
               <td class="text-center"><%= i.UserProfile.lastName %></td>
               <td class="text-center"><%= i.username %></td>
-              <td class="text-center"><%= i.password %></td>
               <td class="text-center"><%= i.role %></td>
               <td class="text-center"><%= dateFormattedYMD(i.UserProfile.dateOfBirth) %></td>
               <td class="text-center"><%= i.UserProfile.nationality %></td>
               <td class="text-center">
                 <% if (i.subscription === false) { %>
-                <a class="btn btn-danger btn-sm" href="" role="button">Not Paid</a>
+                <a class="btn btn-danger btn-sm disabled" href="" role="button">Not Paid</a>
                 <% } else { %>
-                <a class="btn btn-primary btn-sm" href="" role="button">Paid</a>
+                <a class="btn btn-primary btn-sm disabled" href="" role="button">Paid</a>
                 <% } %>
               </td>
               <td class="text-center">
@@ -75,7 +76,7 @@
                 <% } else if (i.subscription === true && i.confirmation === true) {%>
                 <a class="btn btn-success btn-sm disabled" href="" role="button">Confirmed</a>
                 <% } else if (i.subscription === false && i.confirmation === false) {%>
-                <a class="btn btn-danger btn-sm" href="" role="button">Not Confirmed</a>
+                <a class="btn btn-danger btn-sm disabled" href="" role="button">Not Confirmed</a>
                 <% } else if (i.subscription === false && i.confirmation === true) { %>
                 <a class="btn btn-primary btn-sm" href="/dashboard/listuser/confirm/<%= i.id %>" role="button">Confirmed ?</a>
                 <% } %>

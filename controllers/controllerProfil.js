@@ -40,8 +40,8 @@ class Controller {
         const { idUser, idUserProfile } = req.params
         try {
 
-            const { firstName, lastName, username, email, password, dateOfBirth, nationality } = req.body
-            await User.update({ username, password, email }, {
+            const { firstName, lastName, username, email, dateOfBirth, nationality } = req.body
+            await User.update({ username, email }, {
                 where: {
                     id: idUser
                 }

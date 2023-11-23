@@ -182,7 +182,7 @@ class Controller {
             let { idMovie } = req.params
             let { description, rating, } = req.body
             await ReviewMovie.create({ description, rating, MovieId: idMovie, UserId: req.session.userId })
-            res.redirect(`/movies/${idMovie}#reviewSection`)
+            res.redirect(`/movies/${idMovie}`)
         } catch (error) {
             console.log(error)
             res.send(error.message)

@@ -19,12 +19,12 @@ router.use(Controller.sessionAccountLogin) // session login check
 
 router.get('/logout', Controller.logout)
 
-
 router.get('/', Controller.homeMovie) // home
 router.get('/movies/:idMovie', Controller.detailMovie) // detail
 router.post('/movies/addreview/:idMovie', Controller.saveNewReview) // save new review POST
 
 router.use('/profil', profilUser)
+router.use('/payment', Controller.sessionAccountSubs, subs)
 
 //===================================================================================
 router.use(Controller.sessionAccountRole) // session role check
@@ -32,11 +32,6 @@ router.use(Controller.sessionAccountRole) // session role check
 
 router.use('/dashboard', dashboardAdmin)
 
-//===================================================================================
-router.use(Controller.sessionAccountSubs) // session role check
-//===================================================================================
-
-router.use('/payment', subs)
 
 
 
