@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   </head>
-  <!-- NavBar Starts -->
+
   <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
       <div class="container-fluid pb-2">
@@ -23,18 +23,21 @@
             <li class="nav-item mx-2">
               <a class="nav-link active" href="/arts/add">Subscription</a>
             </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link active" href="/profil/1">My Profile</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- NavBar Ends -->
+
     <section class="bg-secondary text-bg-dark min-vh-100">
       <div class="container">
         <div class="row">
           <form class="row g-3" action="/" method="get">
             <div class="col-md-3">
-              <label for="searchNameArt" class="visually-hidden">Title</label>
-              <input type="text" class="form-control" id="searchNameArt" name="searchNameArt" placeholder="Search by title movie..." />
+              <label for="search" class="visually-hidden">Title</label>
+              <input type="text" class="form-control" id="search" name="search" placeholder="Search by title movie..." />
             </div>
             <div class="col">
               <button type="submit" class="btn btn-dark">Search</button>
@@ -50,7 +53,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= i.title %></h5>
                 <h6 class="card-subtitle my-3 text-body-secondary"><%= i.formattedDate %></h6>
-                <a href="#" class="btn btn-dark mt-3">Show details</a>
+                <a href="/movies/<%= i.id %>" class="btn btn-dark mt-3">Show details</a>
               </div>
             </div>
           </div>
