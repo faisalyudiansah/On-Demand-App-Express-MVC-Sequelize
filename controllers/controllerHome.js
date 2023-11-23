@@ -3,22 +3,22 @@ const { Op } = require("sequelize")
 class Controller {
     static async homeMovie(req, res) {
         try {
-            let data = await User.findAll()
-            res.send(data)
-            // let { search } = req.query
-            // let optionsWhere = {}
-            // if (search) {
-            //     optionsWhere = {
-            //         title: {
-            //             [Op.iLike]: `%${search}%`
-            //         }
-            //     }
-            // }
-            // let data = await Movie.findAll({
-            //     order: [['id', 'ASC']],
-            //     where: optionsWhere
-            // })
-            // res.render('home', { data })
+            // let data = await User.findAll()
+            // res.send(data)
+            let { search } = req.query
+            let optionsWhere = {}
+            if (search) {
+                optionsWhere = {
+                    title: {
+                        [Op.iLike]: `%${search}%`
+                    }
+                }
+            }
+            let data = await Movie.findAll({
+                order: [['id', 'ASC']],
+                where: optionsWhere
+            })
+            res.render('home', { data })
         } catch (error) {
             console.log(error)
             res.send(error.message)
