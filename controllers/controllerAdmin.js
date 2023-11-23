@@ -52,8 +52,7 @@ class Controller {
 
     static async listUserFromAdmin(req, res) {
         try {
-            let data = await User.findAll()
-            res.send(data)
+            res.send('listUserFromAdmin')
         } catch (error) {
             console.log(error)
             res.send(error.message)
