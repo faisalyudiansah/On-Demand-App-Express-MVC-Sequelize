@@ -1,2 +1,3 @@
-# pair-project-on-demand-app-rmt43
-Pair Project (Hacktiv8 RMT-43) - ON DEMAND APP
+# on-demand-app-MovieFlix
+On Demand App - MovieFlix with Node.js, Express.js, MVC, EJS, Postgres, Sequelize, and Bootstrap CDN
+
