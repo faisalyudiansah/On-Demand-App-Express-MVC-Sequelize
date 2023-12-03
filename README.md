@@ -55,9 +55,9 @@ password : 123
 
 ![reg pc](https://github.com/faisalyudiansah/On-Demand-App-Express-MVC-Sequelize/assets/142356615/84048165-b19b-4dc2-a3e9-8b4895cd9a8b)
 
-![home pc](https://github.com/faisalyudiansah/On-Demand-App-Express-MVC-Sequelize/assets/142356615/86cd535a-8df0-4d57-a95b-21b86dadccd1)
+![home user](https://github.com/faisalyudiansah/On-Demand-App-Express-MVC-Sequelize/assets/142356615/5671350f-2798-4b1a-8020-1bd0103ff2d0)
 
-![detail pc](https://github.com/faisalyudiansah/On-Demand-App-Express-MVC-Sequelize/assets/142356615/69df0bc9-a11f-45f9-9f29-4cdb42e307f5)
+![detail movie user](https://github.com/faisalyudiansah/On-Demand-App-Express-MVC-Sequelize/assets/142356615/b3cc289a-57f7-4e0c-b278-e6e20255dd73)
 
 ![dash admin movie](https://github.com/faisalyudiansah/On-Demand-App-Express-MVC-Sequelize/assets/142356615/5de63d99-ffba-4534-95b0-ec95fc3e93d7)
 
