@@ -7,9 +7,8 @@ class Controller {
     //===================================================================================
     static async sessionAccountLogin(req, res, next) {
         try {
-            let notValidMsg = `Please login first!`
             if (!req.session.userId) {
-                res.redirect(`/login?error=${notValidMsg}`)
+                res.redirect(`/login`)
             } else {
                 next()
             }
